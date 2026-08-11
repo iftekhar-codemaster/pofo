@@ -1,0 +1,8 @@
+node_modules/
+.next/
+prisma/dev.db
+.env
+.agents/
+TEST_INFRA.md
+TEST_READY.md
+tests/
