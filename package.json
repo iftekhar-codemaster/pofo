@@ -1,46 +1,24 @@
 {
-  "name": "pofo",
-  "version": "0.1.0",
+  "name": "iftekhar-work-portfolio-2026",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node -e \"require('fs').mkdirSync('.next/server/pages', {recursive: true}); require('fs').writeFileSync('.next/server/font-manifest.json', '[]'); require('fs').writeFileSync('.next/server/middleware-manifest.json', JSON.stringify({version:3,middleware:{},functions:{},sortedMiddleware:[]}))\" && next build",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "seed": "tsx prisma/seed.ts",
-    "test:e2e": "tsx tests/run-e2e.ts"
-  },
-  "prisma": {
-    "seed": "tsx prisma/seed.ts"
+    "lint": "eslint src"
   },
   "dependencies": {
-    "@prisma/client": "^5.14.0",
-    "@react-three/drei": "^9.105.0",
-    "@react-three/fiber": "^8.16.0",
-    "@studio-freight/lenis": "^1.0.42",
-    "bcryptjs": "^2.4.3",
-    "clsx": "^2.1.1",
-    "framer-motion": "^11.2.10",
-    "gsap": "^3.12.5",
-    "jose": "^5.4.0",
-    "lucide-react": "^0.380.0",
-    "next": "^14.2.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwind-merge": "^2.3.0",
-    "three": "^0.164.1"
+    "next": "^16.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "@types/node": "^20.12.12",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@types/three": "^0.164.1",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
-    "prisma": "^5.14.0",
-    "tailwindcss": "^3.4.3",
-    "tsx": "^4.11.0",
-    "typescript": "^5.4.5"
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.0.0",
+    "typescript": "^5.7.0"
   }
 }
