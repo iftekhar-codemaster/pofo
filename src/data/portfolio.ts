@@ -73,7 +73,8 @@ export const HERO_META = {
   pitch:
     "I build interactive web experiences, AI workflows, and hardware prototypes that refuse to feel ordinary.",
   monolithImg: "/images/hero-monolith.jpg",
-  monolithAlt: "Obsidian and vermilion architectural monolith artwork",
+  monolithAlt:
+    "Editorial studio portrait of MD Iftekhar Ferdous in obsidian and vermilion lighting",
   subCaption:
     "MD IFTEKHAR FERDOUS · CO-FOUNDER & CTO, AMAR EVENTS · BUILDER",
   scrollCueLabel: "SCROLL TO EXPLORE",
@@ -82,7 +83,8 @@ export const HERO_META = {
 export const ABOUT_META = {
   indexLabel: "02 / ABOUT",
   visualImg: "/images/about-sculpture.jpg",
-  visualAlt: "Minimalist dark sculpture study",
+  visualAlt:
+    "Editorial studio portrait of MD Iftekhar Ferdous wearing glasses in obsidian and vermilion lighting",
   captionLeft: "DHAKA COLLEGE · HSC '28",
   captionRight: "ROLL 189 · SCI-B",
 };
