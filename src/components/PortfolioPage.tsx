@@ -28,6 +28,7 @@ export default function PortfolioPage() {
   const [activeProjectIdx, setActiveProjectIdx] = useState(0);
   const [toastMessage, setToastMessage] = useState("Email copied to clipboard");
   const [toastVisible, setToastVisible] = useState(false);
+  const [heroIntro, setHeroIntro] = useState(true);
   const [heroGlitchBurst, setHeroGlitchBurst] = useState(false);
   const toastTimerRef = useRef<number | null>(null);
   const glitchTimerRef = useRef<number | null>(null);
@@ -59,7 +60,12 @@ export default function PortfolioPage() {
   });
 
   useEffect(() => {
+    const introTimer = window.setTimeout(() => {
+      setHeroIntro(false);
+    }, 1150);
+
     return () => {
+      window.clearTimeout(introTimer);
       if (toastTimerRef.current !== null) {
         window.clearTimeout(toastTimerRef.current);
       }
@@ -185,7 +191,11 @@ export default function PortfolioPage() {
           </svg>
 
           {/* 01 · HERO */}
-          <section className="sec-hero" id="sec-hero">
+          <section
+            className={`sec-hero${heroIntro ? " is-hero-intro" : ""}`}
+            id="sec-hero"
+          >
+            <div className="hero-boot-scanline" aria-hidden="true" />
             <div className="hero-top-meta">
               <div className="hero-greeting">{HERO_META.greeting}</div>
               <div className="hero-starburst-wrap">
