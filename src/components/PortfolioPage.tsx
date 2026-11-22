@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import ChromeAndOverlays from "@/components/ChromeAndOverlays";
 import MenuOverlay from "@/components/MenuOverlay";
 import CaseStudyModal from "@/components/CaseStudyModal";
@@ -27,7 +28,9 @@ export default function PortfolioPage() {
   const [activeProjectIdx, setActiveProjectIdx] = useState(0);
   const [toastMessage, setToastMessage] = useState("Email copied to clipboard");
   const [toastVisible, setToastVisible] = useState(false);
+  const [heroGlitchBurst, setHeroGlitchBurst] = useState(false);
   const toastTimerRef = useRef<number | null>(null);
+  const glitchTimerRef = useRef<number | null>(null);
 
   const closeAll = useCallback(() => {
     setActiveCaseIdx(null);
@@ -60,7 +63,23 @@ export default function PortfolioPage() {
       if (toastTimerRef.current !== null) {
         window.clearTimeout(toastTimerRef.current);
       }
+      if (glitchTimerRef.current !== null) {
+        window.clearTimeout(glitchTimerRef.current);
+      }
     };
+  }, []);
+
+  const triggerHeroGlitch = useCallback(() => {
+    setHeroGlitchBurst(false);
+    if (glitchTimerRef.current !== null) {
+      window.clearTimeout(glitchTimerRef.current);
+    }
+    requestAnimationFrame(() => {
+      setHeroGlitchBurst(true);
+      glitchTimerRef.current = window.setTimeout(() => {
+        setHeroGlitchBurst(false);
+      }, 420);
+    });
   }, []);
 
   const showToast = useCallback((msg: string) => {
@@ -189,15 +208,35 @@ export default function PortfolioPage() {
 
             <div className="hero-stage">
               <div
-                className="hero-monolith-frame"
+                className={`hero-monolith-frame${heroGlitchBurst ? " is-glitch-burst" : ""}`}
                 id="hero-monolith"
                 data-depth-layer="front"
+                style={
+                  {
+                    "--hero-img": `url('${HERO_META.monolithImg}')`,
+                  } as CSSProperties
+                }
+                onMouseEnter={triggerHeroGlitch}
+                onClick={triggerHeroGlitch}
               >
                 <img
                   src={HERO_META.monolithImg}
                   alt={HERO_META.monolithAlt}
                   onLoad={syncDocumentHeight}
                 />
+                <div
+                  className="hero-glitch-layer hero-glitch-r"
+                  aria-hidden="true"
+                />
+                <div
+                  className="hero-glitch-layer hero-glitch-b"
+                  aria-hidden="true"
+                />
+                <div
+                  className="hero-glitch-layer hero-glitch-tear"
+                  aria-hidden="true"
+                />
+                <div className="hero-glitch-scanlines" aria-hidden="true" />
                 <div className="hero-monolith-glow" />
               </div>
 

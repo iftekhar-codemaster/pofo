@@ -543,6 +543,278 @@ body.menu-open .menu-overlay {
   display: block;
   transform: scale(1.06);
   will-change: transform;
+  animation: heroBaseMicroJolt 5.6s steps(1, end) infinite;
+}
+
+/* Precision Editorial Signal Glitch Layers (Vermilion + Cobalt Chromatic Split & Frame Tear) */
+.hero-glitch-layer {
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-img, url('/images/hero-monolith.jpg'));
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  opacity: 0;
+  will-change: clip-path, transform, opacity;
+}
+
+.hero-glitch-r {
+  mix-blend-mode: screen;
+  filter: saturate(1.9) contrast(1.28) drop-shadow(-3px 0 0 rgba(255, 59, 0, 0.92));
+  animation: heroGlitchRed 5.6s steps(1, end) infinite;
+}
+
+.hero-glitch-b {
+  mix-blend-mode: screen;
+  filter: hue-rotate(195deg) saturate(2.2) contrast(1.32) brightness(1.08) drop-shadow(3px 0 0 rgba(0, 42, 255, 0.95));
+  animation: heroGlitchCobalt 5.6s steps(1, end) infinite;
+}
+
+.hero-glitch-tear {
+  filter: contrast(1.16) brightness(1.06);
+  animation: heroGlitchTear 5.6s steps(1, end) infinite;
+}
+
+.hero-glitch-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(9, 9, 11, 0.32) 0px,
+      rgba(9, 9, 11, 0.32) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(0, 42, 255, 0.16) 36%,
+      rgba(255, 59, 0, 0.18) 38%,
+      transparent 44%
+    );
+  mix-blend-mode: screen;
+  animation: heroGlitchScan 5.6s steps(1, end) infinite;
+}
+
+/* Interactive burst on hover/click */
+.hero-monolith-frame.is-glitch-burst img {
+  animation: heroBurstBase 0.42s steps(1, end) 1;
+}
+
+.hero-monolith-frame.is-glitch-burst .hero-glitch-r {
+  animation: heroBurstRed 0.42s steps(1, end) 1;
+}
+
+.hero-monolith-frame.is-glitch-burst .hero-glitch-b {
+  animation: heroBurstCobalt 0.42s steps(1, end) 1;
+}
+
+.hero-monolith-frame.is-glitch-burst .hero-glitch-tear {
+  animation: heroBurstTear 0.42s steps(1, end) 1;
+}
+
+.hero-monolith-frame.is-glitch-burst .hero-glitch-scanlines {
+  animation: heroBurstScan 0.42s steps(1, end) 1;
+}
+
+@keyframes heroBaseMicroJolt {
+  0%, 73.5%, 79%, 92.5%, 96%, 100% {
+    transform: scale(1.06) translate3d(0, 0, 0);
+    filter: none;
+  }
+  74% {
+    transform: scale(1.065) translate3d(-2px, 0, 0);
+    filter: contrast(1.08);
+  }
+  75.5% {
+    transform: scale(1.06) translate3d(2px, -1px, 0);
+    filter: contrast(1.12) saturate(1.12);
+  }
+  77% {
+    transform: scale(1.062) translate3d(-1px, 1px, 0);
+  }
+  93% {
+    transform: scale(1.064) translate3d(2px, 0, 0);
+    filter: contrast(1.1);
+  }
+  94.5% {
+    transform: scale(1.06) translate3d(-1px, 0, 0);
+  }
+}
+
+@keyframes heroGlitchRed {
+  0%, 73.5%, 79.2%, 92.5%, 96.2%, 100% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  74% {
+    opacity: 0.78;
+    clip-path: inset(16% 0 70% 0);
+    transform: scale(1.06) translate3d(-11px, 0, 0);
+  }
+  75% {
+    opacity: 0.85;
+    clip-path: inset(44% 0 42% 0);
+    transform: scale(1.06) translate3d(9px, -1px, 0);
+  }
+  76.2% {
+    opacity: 0.72;
+    clip-path: inset(66% 0 18% 0);
+    transform: scale(1.06) translate3d(-14px, 1px, 0);
+  }
+  77.6% {
+    opacity: 0.65;
+    clip-path: inset(27% 0 64% 0);
+    transform: scale(1.06) translate3d(6px, 0, 0);
+  }
+  93% {
+    opacity: 0.8;
+    clip-path: inset(32% 0 56% 0);
+    transform: scale(1.06) translate3d(-9px, 0, 0);
+  }
+  94.5% {
+    opacity: 0.62;
+    clip-path: inset(58% 0 31% 0);
+    transform: scale(1.06) translate3d(7px, 0, 0);
+  }
+}
+
+@keyframes heroGlitchCobalt {
+  0%, 73.5%, 79.2%, 92.5%, 96.2%, 100% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  74% {
+    opacity: 0.75;
+    clip-path: inset(28% 0 58% 0);
+    transform: scale(1.06) translate3d(12px, 0, 0);
+  }
+  75% {
+    opacity: 0.88;
+    clip-path: inset(52% 0 36% 0);
+    transform: scale(1.06) translate3d(-13px, 1px, 0);
+  }
+  76.2% {
+    opacity: 0.76;
+    clip-path: inset(12% 0 79% 0);
+    transform: scale(1.06) translate3d(10px, -1px, 0);
+  }
+  77.6% {
+    opacity: 0.58;
+    clip-path: inset(72% 0 16% 0);
+    transform: scale(1.06) translate3d(-7px, 0, 0);
+  }
+  93% {
+    opacity: 0.78;
+    clip-path: inset(38% 0 52% 0);
+    transform: scale(1.06) translate3d(11px, 0, 0);
+  }
+  94.5% {
+    opacity: 0.55;
+    clip-path: inset(20% 0 72% 0);
+    transform: scale(1.06) translate3d(-8px, 0, 0);
+  }
+}
+
+@keyframes heroGlitchTear {
+  0%, 73.8%, 78.6%, 92.8%, 95.6%, 100% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  74.4% {
+    opacity: 0.96;
+    clip-path: inset(34% 0 59% 0);
+    transform: scale(1.06) translate3d(14px, 0, 0) skewX(-3deg);
+  }
+  75.6% {
+    opacity: 0.96;
+    clip-path: inset(48% 0 45% 0);
+    transform: scale(1.06) translate3d(-15px, 0, 0) skewX(4deg);
+  }
+  76.8% {
+    opacity: 0.92;
+    clip-path: inset(22% 0 73% 0);
+    transform: scale(1.06) translate3d(9px, 0, 0) skewX(-2deg);
+  }
+  93.4% {
+    opacity: 0.95;
+    clip-path: inset(41% 0 53% 0);
+    transform: scale(1.06) translate3d(-12px, 0, 0) skewX(3deg);
+  }
+}
+
+@keyframes heroGlitchScan {
+  0%, 73.5%, 79%, 92.5%, 96%, 100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  74.5% {
+    opacity: 0.42;
+    transform: translateY(-6%);
+  }
+  76.5% {
+    opacity: 0.34;
+    transform: translateY(14%);
+  }
+  93.2% {
+    opacity: 0.36;
+    transform: translateY(4%);
+  }
+}
+
+/* Interactive burst keyframes (fires immediately on hover/click) */
+@keyframes heroBurstBase {
+  0%, 100% { transform: scale(1.06) translate3d(0, 0, 0); filter: none; }
+  20% { transform: scale(1.066) translate3d(-3px, 0, 0); filter: contrast(1.12); }
+  45% { transform: scale(1.06) translate3d(3px, -1px, 0); filter: contrast(1.16) saturate(1.15); }
+  72% { transform: scale(1.063) translate3d(-1px, 1px, 0); }
+}
+
+@keyframes heroBurstRed {
+  0%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: scale(1.06); }
+  12% { opacity: 0.85; clip-path: inset(18% 0 68% 0); transform: scale(1.06) translate3d(-13px, 0, 0); }
+  36% { opacity: 0.9; clip-path: inset(46% 0 40% 0); transform: scale(1.06) translate3d(11px, -1px, 0); }
+  62% { opacity: 0.78; clip-path: inset(64% 0 22% 0); transform: scale(1.06) translate3d(-15px, 1px, 0); }
+  84% { opacity: 0.55; clip-path: inset(28% 0 64% 0); transform: scale(1.06) translate3d(6px, 0, 0); }
+}
+
+@keyframes heroBurstCobalt {
+  0%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: scale(1.06); }
+  12% { opacity: 0.82; clip-path: inset(30% 0 56% 0); transform: scale(1.06) translate3d(14px, 0, 0); }
+  36% { opacity: 0.92; clip-path: inset(54% 0 34% 0); transform: scale(1.06) translate3d(-14px, 1px, 0); }
+  62% { opacity: 0.8; clip-path: inset(12% 0 78% 0); transform: scale(1.06) translate3d(12px, -1px, 0); }
+  84% { opacity: 0.52; clip-path: inset(70% 0 18% 0); transform: scale(1.06) translate3d(-7px, 0, 0); }
+}
+
+@keyframes heroBurstTear {
+  0%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: scale(1.06); }
+  18% { opacity: 0.96; clip-path: inset(34% 0 58% 0); transform: scale(1.06) translate3d(16px, 0, 0) skewX(-3.5deg); }
+  48% { opacity: 0.96; clip-path: inset(49% 0 44% 0); transform: scale(1.06) translate3d(-16px, 0, 0) skewX(4deg); }
+  74% { opacity: 0.9; clip-path: inset(21% 0 73% 0); transform: scale(1.06) translate3d(10px, 0, 0) skewX(-2deg); }
+}
+
+@keyframes heroBurstScan {
+  0%, 100% { opacity: 0; }
+  20% { opacity: 0.44; transform: translateY(-8%); }
+  55% { opacity: 0.38; transform: translateY(12%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-monolith-frame img,
+  .hero-glitch-layer,
+  .hero-glitch-scanlines {
+    animation: none !important;
+  }
+  .hero-glitch-layer,
+  .hero-glitch-scanlines {
+    opacity: 0 !important;
+  }
 }
 
 .hero-monolith-glow {
