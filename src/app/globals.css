@@ -2435,13 +2435,321 @@ body.menu-open .menu-overlay {
 }
 
 /* ============================================================
+   PERSONAL ARCHIVE INTERLUDE: DEDICATION TO SaH (Architectural Cream)
+   ============================================================ */
+.sec-dedication {
+  position: relative;
+  background: var(--cream);
+  color: var(--ink);
+  padding: 130px 6vw 104px;
+  z-index: auto;
+}
+
+.dedication-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-bottom: 104px;
+  border-bottom: 1px solid var(--hairline-light);
+}
+
+.dedication-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 430px) 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .dedication-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .sec-dedication {
+    padding: 96px 6vw 72px;
+  }
+  .dedication-inner {
+    padding-bottom: 72px;
+  }
+}
+
+.dedication-plate-wrap {
+  position: relative;
+  z-index: 30;
+}
+
+.dedication-plate {
+  position: relative;
+  display: block;
+  width: 100%;
+  background: #faf7f0;
+  border: 1px solid rgba(13, 13, 16, 0.12);
+  border-radius: 10px;
+  padding: 20px 20px 18px;
+  text-align: left;
+  cursor: pointer;
+  color: var(--ink);
+  box-shadow:
+    0 30px 72px rgba(13, 13, 16, 0.09),
+    0 2px 6px rgba(13, 13, 16, 0.04);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+  will-change: transform;
+}
+
+.dedication-plate:hover {
+  border-color: rgba(255, 59, 0, 0.38);
+  box-shadow:
+    0 38px 86px rgba(13, 13, 16, 0.13),
+    0 0 0 1px rgba(255, 59, 0, 0.12);
+}
+
+.plate-tick {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  border-color: rgba(255, 59, 0, 0.5);
+  border-style: solid;
+  border-width: 0;
+}
+
+.plate-tick-tl { top: 8px; left: 8px; border-top-width: 1px; border-left-width: 1px; }
+.plate-tick-tr { top: 8px; right: 8px; border-top-width: 1px; border-right-width: 1px; }
+.plate-tick-bl { bottom: 8px; left: 8px; border-bottom-width: 1px; border-left-width: 1px; }
+.plate-tick-br { bottom: 8px; right: 8px; border-bottom-width: 1px; border-right-width: 1px; }
+
+.dedication-art-well {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #f5f0e5;
+  border: 1px solid rgba(13, 13, 16, 0.06);
+}
+
+.dedication-art-well img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  mix-blend-mode: multiply;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dedication-plate:hover .dedication-art-well img {
+  transform: scale(1.03);
+}
+
+.dedication-plate-caption {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+
+.plate-status {
+  color: var(--ink);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+}
+
+.dedication-copy-col {
+  position: relative;
+  z-index: 12;
+}
+
+.dedication-kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  margin-bottom: 18px;
+}
+
+.dedication-headline {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(2.35rem, 4.8vw, 4.1rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+
+.dedication-headline em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--vermilion);
+  letter-spacing: -0.01em;
+}
+
+.dedication-lead {
+  font-size: 15.5px;
+  line-height: 1.72;
+  color: var(--muted-light);
+  max-width: 500px;
+  margin-bottom: 32px;
+}
+
+.dedication-spec-table {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.dedication-spec-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--hairline-light);
+  align-items: baseline;
+}
+
+.dedication-spec-row:first-child {
+  border-top: 1px solid var(--hairline-light);
+}
+
+@media (max-width: 560px) {
+  .dedication-spec-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+.dedication-spec-key {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+
+.dedication-spec-val {
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-align: right;
+}
+
+@media (max-width: 560px) {
+  .dedication-spec-val {
+    text-align: left;
+  }
+}
+
+.dedication-actions {
+  position: relative;
+  z-index: 28;
+}
+
+.dedication-open-pill {
+  padding: 11px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.dedication-open-pill:hover {
+  background: var(--ink);
+  color: var(--cream);
+  transform: translateY(-2px);
+}
+
+/* Archival Keepsake Lightbox */
+.dedication-lightbox-card {
+  width: min(560px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  background: #111115;
+  border: 1px solid rgba(241, 237, 228, 0.16);
+  border-radius: 14px;
+  padding: 24px 26px 22px;
+  color: var(--cream);
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.case-modal-backdrop.open .dedication-lightbox-card {
+  transform: translateY(0) scale(1);
+}
+
+.dedication-lightbox-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.dedication-lightbox-title {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+}
+
+.dedication-lightbox-title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--vermilion);
+}
+
+.dedication-lightbox-frame {
+  background: #faf7f0;
+  border-radius: 10px;
+  padding: 14px;
+  overflow: hidden;
+}
+
+.dedication-lightbox-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  mix-blend-mode: multiply;
+}
+
+.dedication-lightbox-foot {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-dark);
+}
+
+/* ============================================================
    SECTION 08: KINETIC CONTACT (Cream) + MONOGRAM FOOTER (Obsidian)
    ============================================================ */
 .sec-contact {
   position: relative;
   background: var(--cream);
   color: var(--ink);
-  padding: 150px 6vw 120px;
+  padding: 96px 6vw 120px;
   text-align: center;
   z-index: auto;
 }

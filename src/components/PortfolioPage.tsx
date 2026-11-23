@@ -8,6 +8,9 @@ import CaseStudyModal from "@/components/CaseStudyModal";
 import CraftSection from "@/components/CraftSection";
 import WorkCarousel from "@/components/WorkCarousel";
 import HardwareLabSection from "@/components/HardwareLabSection";
+import DedicationSection, {
+  DedicationLightbox,
+} from "@/components/DedicationSection";
 import {
   ABOUT_META,
   BECAUSE_PARAGRAPHS,
@@ -25,6 +28,7 @@ import { useSmoothChoreography } from "@/hooks/useSmoothChoreography";
 export default function PortfolioPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeCaseIdx, setActiveCaseIdx] = useState<number | null>(null);
+  const [dedicationOpen, setDedicationOpen] = useState(false);
   const [activeProjectIdx, setActiveProjectIdx] = useState(0);
   const [toastMessage, setToastMessage] = useState("Email copied to clipboard");
   const [toastVisible, setToastVisible] = useState(false);
@@ -35,6 +39,7 @@ export default function PortfolioPage() {
 
   const closeAll = useCallback(() => {
     setActiveCaseIdx(null);
+    setDedicationOpen(false);
     setMenuOpen(false);
   }, []);
 
@@ -54,7 +59,7 @@ export default function PortfolioPage() {
     syncDocumentHeight,
   } = useSmoothChoreography({
     menuOpen,
-    modalOpen: activeCaseIdx !== null,
+    modalOpen: activeCaseIdx !== null || dedicationOpen,
     onCloseAll: closeAll,
     onStepCarousel: stepCarousel,
   });
@@ -174,6 +179,11 @@ export default function PortfolioPage() {
       <CaseStudyModal
         project={activeProject}
         onClose={() => setActiveCaseIdx(null)}
+      />
+
+      <DedicationLightbox
+        open={dedicationOpen}
+        onClose={() => setDedicationOpen(false)}
       />
 
       {/* Smooth Scroll Spacer */}
@@ -427,6 +437,12 @@ export default function PortfolioPage() {
 
           {/* 07 · FLAGSHIP HARDWARE LAB */}
           <HardwareLabSection onOpenCase={setActiveCaseIdx} />
+
+          {/* PERSONAL ARCHIVE · DEDICATION TO SaH */}
+          <DedicationSection
+            onOpenLightbox={() => setDedicationOpen(true)}
+            onImageLoad={syncDocumentHeight}
+          />
 
           {/* 08 · KINETIC CONTACT + MONOGRAM FOOTER */}
           <section className="sec-contact" id="sec-contact">
