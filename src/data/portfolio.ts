@@ -57,6 +57,7 @@ export interface StatItem {
 }
 
 export interface TimelineItem {
+  id: string;
   year: string;
   role: string;
   title: string;
@@ -76,7 +77,7 @@ export const HERO_META = {
   monolithAlt:
     "Editorial studio portrait of MD Iftekhar Ferdous in obsidian and vermilion lighting",
   subCaption:
-    "MD IFTEKHAR FERDOUS · CO-FOUNDER & CTO, AMAR EVENTS · BUILDER",
+    "MD IFTEKHAR FERDOUS · CO-FOUNDER & CTO, AMAREVENTS · BUILDER",
   scrollCueLabel: "SCROLL TO EXPLORE",
 };
 
@@ -159,12 +160,12 @@ export const SPEC_ROWS: SpecRowItem[] = [
     value: "Dhaka College · Class XI Science-B",
   },
   {
-    key: "Amar Events",
-    value: "Co-Founder, Marketing Manager & CTO",
+    key: "AmarEvents",
+    value: "Co-Founder & CTO",
   },
   {
     key: "CareQuest",
-    value: "Director of IT & Media Creative",
+    value: "IT & Media Creative (Present)",
   },
   {
     key: "Dhaka College",
@@ -196,7 +197,7 @@ export const MANIFESTO_WORDS: { text: string; accent?: boolean }[] = [
 ];
 
 export const BECAUSE_PARAGRAPHS = [
-  "I'm MD Iftekhar Ferdous — Co-Founder, Marketing Manager & CTO at Amar Events, Director of IT & Media Creative at CareQuest Foundation, IT Associate at DCICC, and Section Representative at Dhaka College Science Club.",
+  "I'm MD Iftekhar Ferdous — Co-Founder & CTO at AmarEvents, IT & Media Creative at CareQuest Foundation, IT Associate at DCICC, and Section Representative at Dhaka College Science Club.",
   "Whether crafting a bilingual humanitarian site, directing a 3D WebGL club experience, or wiring an ESP32-S3 desk robot on an open breadboard, I care about one standard: every interaction should feel intentional and alive.",
 ];
 
@@ -220,35 +221,69 @@ export const STATS: StatItem[] = [
     label: "THE RENAISSANCE 2026",
     target: 54,
     initialText: "54",
-    desc: "Festival segments supported through partner documentation and club design direction.",
+    desc: "Festival segments supported as IT Director (completed Oct 2026) through partner documentation and club design direction.",
   },
 ];
 
 export const TIMELINE_ITEMS: TimelineItem[] = [
   {
-    year: "2025",
-    role: "STARTUP ARCHITECTURE",
-    title: "CraveLee Concept & Product Scope",
-    desc: "Architected a single-handed digital platform for discovering nearby restaurants, browsing live menus, and surfacing limited-time local offers — mapped out for future seat pre-booking and ordering.",
+    id: "draxy-gaming-2023",
+    year: "2023",
+    role: "YOUTUBE CREATOR · 11K SUBS",
+    title: "Draxy Gaming",
+    desc: "Built and grew the Draxy Gaming YouTube channel to 11k subs through consistent gaming content production, video editing, and audience storytelling.",
   },
   {
-    year: "2026",
-    role: "DCSC SR · DCICC IT ASSOCIATE",
-    title: "Dhaka College Club Leadership",
-    desc: "Joined Dhaka College (Science-B, Roll 189) after SSC. Serving as Section Representative (SR) for Dhaka College Science Club and IT Associate for Dhaka College Islamic Cultural Club.",
+    id: "amarevents-2026",
+    year: "JAN / MAR '26",
+    role: "CO-FOUNDER (JAN 2026) · CTO (MARCH 2026)",
+    title: "AmarEvents",
+    desc: "Co-founded AmarEvents in January 2026 and stepped into the CTO role in March 2026, leading product architecture, event-tech systems, and technical execution.",
     reverse: true,
   },
   {
-    year: "NOV '26",
-    role: "AMAR EVENTS · CAREQUEST FOUNDATION",
-    title: "Amar Events & CareQuest Leadership",
-    desc: 'Leading technology and growth as Co-Founder, Marketing Manager & CTO at Amar Events, while serving as Director of IT & Media Creative at CareQuest Foundation and directing DCICC\'s "Noor-al-Mi\'mar" 3D web system.',
+    id: "cravely-2026",
+    year: "MAY 26, '26",
+    role: "MAY 26, 2026 · FOUNDER",
+    title: "Cravely",
+    desc: "Founded Cravely on May 26, 2026 and architected a single-handed local restaurant discovery platform for live menus, limited-time offers, and phased seat pre-booking.",
   },
   {
-    year: "NOW",
-    role: "HARDWARE & AI OLYMPIADS",
-    title: "Desk Companion Robot & Competitive AI",
-    desc: "Prototyping an open-breadboard, dual-bot ESP32-S3 desk companion with micro-servos and Bangla/English push-to-talk AI voice, while preparing for national AI and Innovation Olympiads.",
+    id: "admitted-dc-2026",
+    year: "SEPT 24, '26",
+    role: "SEPT 24, 2026 · HSC '28",
+    title: "Admitted to DC (Dhaka College)",
+    desc: "Admitted to Dhaka College (DC) on September 24, 2026 in Science Section B (Roll 189), beginning HSC '28 alongside active software and hardware shipping.",
+    reverse: true,
+  },
+  {
+    id: "dcsc-sr-2026",
+    year: "OCT 10, '26",
+    role: "OCT 10, 2026 · DCSC SR",
+    title: "DCSC — Section Representative",
+    desc: "Appointed Section Representative (SR) for the Dhaka College Science Club (DCSC) on October 10, 2026, coordinating section-level science initiatives and student outreach.",
+  },
+  {
+    id: "dcicc-2026",
+    year: "OCT 13, '26",
+    role: "OCT 13, 2026 · IT ASSOCIATE (PRESENT)",
+    title: "DCICC — IT Associate (Present)",
+    desc: 'Joined Dhaka College Islamic Cultural Club (DCICC) as IT Associate (present) on October 13, 2026, directing the "Noor-al-Mi\'mar" 3D WebGL web experience and design system.',
+    reverse: true,
+  },
+  {
+    id: "renaissance-2026",
+    year: "OCT 23, '26",
+    role: "OCT 23, 2026 · IT DIRECTOR (END)",
+    title: "Renaissance — IT Director (End)",
+    desc: "Completed term as IT Director (end) for The Renaissance 2026 on October 23, 2026, delivering partner-facing digital systems and technical direction across 54 festival segments.",
+  },
+  {
+    id: "carequest-2026",
+    year: "NOV 18, '26",
+    role: "NOV 18, 2026 · IT & MEDIA CREATIVE (PRESENT)",
+    title: "CareQuest Foundation",
+    desc: "Serving as IT & Media Creative (present) at CareQuest Foundation since November 18, 2026, engineering the bilingual English/Bangla humanitarian web platform and Project One Meal One Smile flows.",
     reverse: true,
   },
 ];
@@ -297,7 +332,7 @@ export const PROJECTS: ProjectItem[] = [
     id: "carequest",
     num: "01",
     title: "CareQuest Foundation",
-    cat: "DIRECTOR OF IT & MEDIA CREATIVE · BILINGUAL WEB",
+    cat: "IT & MEDIA CREATIVE · BILINGUAL WEB",
     img: "/images/project-carequest.jpg",
     desc: "A compassionate bilingual (English & Bangla) web experience for CareQuest Foundation and Project One Meal One Smile, engineered with Lenis smooth scroll and zero-clutter donation flows.",
     highlights: [
@@ -322,18 +357,18 @@ export const PROJECTS: ProjectItem[] = [
     tags: ["Three.js WebGL", "Design System", "Clamped Physics", "Editorial"],
   },
   {
-    id: "cravelee",
+    id: "cravely",
     num: "03",
-    title: "CraveLee",
-    cat: "STARTUP CONCEPT · RESTAURANT DISCOVERY · PRODUCT UI",
-    img: "/images/project-cravelee.jpg",
-    desc: "A single-handed local dining discovery startup concept designed to let users explore nearby restaurants, browse structured menus, and spot limited-time dishes without friction.",
+    title: "Cravely",
+    cat: "FOUNDER · RESTAURANT DISCOVERY · INSTALLABLE PWA",
+    img: "/images/cravely.png",
+    desc: "A single-handed local dining discovery web app founded to show every kitchen, dish, and price in Thakurgaon — installable right from the browser so users spend less time wondering and more time eating.",
     highlights: [
-      "Architected as a lean digital information-services platform for urban food discovery",
-      "Menu-first browsing hierarchy spotlighting local offers and seasonal dishes",
-      "Phased roadmap engineered for seat pre-booking, pre-ordering, and delivery",
+      "Shows every local kitchen, structured menu, dish, and live price across Thakurgaon",
+      "Works instantly in the browser and installs cleanly as a lightweight mobile-first app",
+      "Phased roadmap engineered for seat pre-booking, pre-ordering, and local offers",
     ],
-    tags: ["Product Design", "Startup Scope", "Mobile-First", "Discovery"],
+    tags: ["Product Design", "Installable PWA", "Mobile-First", "Food Discovery"],
   },
   {
     id: "deskbot",
@@ -362,6 +397,20 @@ export const PROJECTS: ProjectItem[] = [
       "Scratch-off keepsake vouchers, shake-to-shuffle interaction, and PWA installability",
     ],
     tags: ["Mobile PWA", "3D Gallery", "Haptics", "Micro-Interactions"],
+  },
+  {
+    id: "amarevents",
+    num: "06",
+    title: "AmarEvents",
+    cat: "CO-FOUNDER & CTO · AI EVENT DISCOVERY · PLATFORM",
+    img: "/images/project-amarevents.png",
+    desc: "An AI-powered event discovery platform built as Co-Founder & CTO, featuring Amar AI Assistant to help users find events in reach across 26 categories including festivals, workshops, cultural programs, and competitions.",
+    highlights: [
+      "Amar AI Assistant natural-language event search spanning 26 curated topic categories",
+      "Unified dark-mode platform integrating Events, Calendar, Plans, Docs, and interactive Games",
+      "Co-founded in January 2026 and architected end-to-end as CTO from March 2026",
+    ],
+    tags: ["Amar AI", "Event Platform", "Full-Stack", "CTO Architecture"],
   },
 ];
 

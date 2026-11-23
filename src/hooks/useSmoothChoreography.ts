@@ -401,7 +401,11 @@ export function useSmoothChoreography({
 
     const handleWheel = (e: WheelEvent) => {
       if (!smoothEnabledRef.current) return;
-      if (menuOpenRef.current || modalOpenRef.current) return;
+      if (menuOpenRef.current) {
+        e.preventDefault();
+        return;
+      }
+      if (modalOpenRef.current) return;
       e.preventDefault();
       const delta = Math.max(-160, Math.min(160, e.deltaY));
       targetScrollRef.current = Math.max(

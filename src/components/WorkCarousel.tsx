@@ -130,7 +130,7 @@ export default function WorkCarousel({
           &larr;
         </button>
         <div className="carousel-counter" id="carousel-counter">
-          {`0${activeProjectIdx + 1} / 0${total}`}
+          {`${String(activeProjectIdx + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`}
         </div>
         <button
           type="button"

@@ -396,9 +396,9 @@ export default function PortfolioPage() {
             <div className="timeline-list">
               {TIMELINE_ITEMS.map((item, idx) => (
                 <article
-                  key={item.year}
-                  className={`timeline-row${item.reverse ? " reverse" : ""}`}
-                  data-depth-layer={idx === 0 || idx === 3 ? "front" : "back"}
+                  key={item.id}
+                  className={`timeline-row${idx % 2 === 1 ? " reverse" : ""}`}
+                  data-depth-layer={idx % 2 === 0 ? "front" : "back"}
                 >
                   <div className="tl-year-col">
                     <div className="tl-year">{item.year}</div>

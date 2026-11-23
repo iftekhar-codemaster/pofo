@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LAB_TABS, OLED_MOODS } from "@/data/portfolio";
+import { LAB_TABS, OLED_MOODS, PROJECTS } from "@/data/portfolio";
 import type { OledMood } from "@/data/portfolio";
 
 interface HardwareLabSectionProps {
@@ -40,7 +40,10 @@ export default function HardwareLabSection({
             type="button"
             className="btn-ink"
             id="btn-lab-inspect"
-            onClick={() => onOpenCase(3)}
+            onClick={() => {
+              const idx = PROJECTS.findIndex((p) => p.id === "deskbot");
+              onOpenCase(idx >= 0 ? idx : 3);
+            }}
           >
             VIEW FULL HARDWARE CASE &rarr;
           </button>
