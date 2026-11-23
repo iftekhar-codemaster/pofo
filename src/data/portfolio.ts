@@ -333,7 +333,7 @@ export const PROJECTS: ProjectItem[] = [
     num: "01",
     title: "CareQuest Foundation",
     cat: "IT & MEDIA CREATIVE · BILINGUAL WEB",
-    img: "/images/project-carequest.jpg",
+    img: "/images/project-carequest.png",
     desc: "A compassionate bilingual (English & Bangla) web experience for CareQuest Foundation and Project One Meal One Smile, engineered with Lenis smooth scroll and zero-clutter donation flows.",
     highlights: [
       "Bilingual English/Bangla language switch with warm editorial typography",
